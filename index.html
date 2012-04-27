@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Lineup ChartsJ</title>
+    <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="protovis-r3.2.js"></script>
+
+    <script type="text/javascript" src="tipsy/src/javascripts/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="pv_tipsy.js"></script>
+    <script type="text/javascript" src="lineup_charts.js"></script>
+    <link href="tipsy/src/stylesheets/tipsy.css" media="screen" rel="stylesheet" type="text/css"> 
+  </head>
+
+  <body>
+    <div id='container'>
+      <div id='vis'>
+			<script type="text/javascript+protovis">
+      
+      jQuery(document).ready(function(){
+        jQuery.getJSON('json/phi.json', function(response){
+          var playerData = response;
+          var graph = new Looting.LineupChart(playerData, 1800);
+          graph.render();
+          Looting.graph = graph;
+        })
+      })
+
+			</script>
+    </div>
+
+    </div>
+
+    <div>
+      <div id='player-info' style='clear:both;'></div>
+    </div>
+  </body>
+</html>
